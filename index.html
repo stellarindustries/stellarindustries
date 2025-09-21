@@ -1,82 +1,175 @@
-<style>
-  /* Define company colors */
-  :root {
-    --deep-space-black: #0D0D0D;  /* Background / hero section */
-    --star-white: #F4F4F4;        /* Text & highlights */
-    --orbit-blue: #2C4F7C;        /* Accent borders, buttons */
-    --gray-steel: #B0B0B0;        /* Subtext or secondary elements */
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stellar Industries</title>
 
-  body {
-    background: var(--deep-space-black);
-    color: var(--star-white);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-  }
+  <!-- Bootstrap for layout & styling -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 
-  /* Hero Section */
-  .hero {
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?fit=crop&w=1950&q=80') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
+  <!-- Custom Styles -->
+  <style>
+    /* Define company colors */
+    :root {
+      --deep-space-black: #0D0D0D;  /* Background / hero section */
+      --star-white: #F4F4F4;        /* Text & highlights */
+      --orbit-blue: #2C4F7C;        /* Accent borders, buttons */
+      --gray-steel: #B0B0B0;        /* Subtext or secondary elements */
+    }
 
-  .hero h1, 
-  .hero p {
-    color: var(--star-white);
-  }
+    body {
+      background: var(--deep-space-black);
+      color: var(--star-white);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-  .hero h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?fit=crop&w=1950&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
 
-  .hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: auto;
-  }
+    /* Overlay behind hero content */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(13, 13, 13, 0.6); /* Dark overlay */
+      z-index: 0;
+    }
 
-  /* Buttons */
-  .btn-primary {
-    background: var(--orbit-blue);
-    border: none;
-  }
+    .hero > div {
+      position: relative;
+      z-index: 1; /* Ensure text is above overlay */
+    }
 
-  /* Sections */
-  section {
-    padding: 100px 0;
-  }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--star-white);
+    }
 
-  section.bg-dark {
-    background-color: var(--deep-space-black);
-  }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+      color: var(--star-white);
+    }
 
-  /* Services list */
-  ul li {
-    margin-bottom: 0.5rem;
-    color: var(--star-white);
-  }
+    /* Hero Button */
+    .btn-primary {
+      background: var(--orbit-blue);
+      color: var(--star-white);
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(44, 79, 124, 0.4);
+    }
 
-  /* Footer */
-  footer {
-    padding: 40px 0;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--gray-steel);
-  }
+    .btn-primary:hover {
+      background: #1A5A9A;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(44, 79, 124, 0.5);
+    }
 
-  /* Links */
-  a {
-    color: var(--orbit-blue);
-    text-decoration: none;
-  }
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
 
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
+    section.bg-dark {
+      background-color: var(--deep-space-black);
+    }
+
+    /* Services list */
+    ul li {
+      margin-bottom: 0.5rem;
+      color: var(--star-white);
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--gray-steel);
+    }
+
+    /* Links */
+    a {
+      color: var(--orbit-blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div data-aos="fade-up">
+      <h1>Stellar Industries</h1>
+      <p>Next-Generation Hypersonics & CFD Solutions</p>
+      <a href="#about" class="btn btn-primary btn-lg mt-4">Learn More</a>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section id="about" class="container" data-aos="fade-up">
+    <h2 class="mb-4">About Us</h2>
+    <p>
+      Stellar Industries is a cutting-edge aerospace consultancy focused on hypersonic aerodynamics
+      and computational fluid dynamics (CFD). We deliver high-value simulation insights for advanced
+      flight systems—faster, smarter, and leaner.
+    </p>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="bg-dark" data-aos="fade-up">
+    <div class="container">
+      <h2 class="mb-4">Services</h2>
+      <ul>
+        <li>Hypersonic CFD Simulations</li>
+        <li>Aerodynamic Optimization</li>
+        <li>Thermal/Fluid Modeling</li>
+        <li>OpenFOAM Consulting & Training</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container" data-aos="fade-up">
+    <h2 class="mb-4">Contact</h2>
+    <p>Email: <a href="mailto:info@stellar-industries.com">info@stellar-industries.com</a></p>
+    <p>LinkedIn: <a href="#" target="_blank">linkedin.com/company/stellar-industries</a></p>
+  </section>
+
+  <footer>
+    © 2025 Stellar Industries. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
