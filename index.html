@@ -40,7 +40,6 @@
       position: relative;
     }
     */
-    /*
     .hero {
       height: 100vh;
       background-image: url("images/grc-2018-c-09843.jpg");
@@ -53,33 +52,6 @@
       text-align: center;
       position: relative;
     }
-    */
-    /* HERO SECTION WITH BACKGROUND VIDEO */
-.hero {
-  height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden; /* prevents scrollbars from the video */
-}
-    /* Full-bleed background video */
-.hero-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;   /* behaves like background-size: cover */
-  z-index: -1;         /* sits under overlay + text */
-}
-    @media (prefers-reduced-motion: reduce) {
-  .hero-video { display: none; }
-}
 
     /* Overlay behind hero content */
     .hero::before {
@@ -183,31 +155,11 @@
 <body>
   <!-- Hero Section -->
   <div class="hero">
-    <!-- Background Video (added) -->
-  <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-    poster="images/video-poster.jpg"
-  >
-    <source src="images/hy2.mp4" type="video/mp4" />
-    <a href="images/hy2.mp4">Download background video</a>
-  </video>
-
-  <!-- Existing hero content -->
-  <div data-aos="fade-up">
-    <h1>Stellar Industries</h1>
-    <p> <i> </i> </p>
-    <!-- <a href="#about" class="btn btn-primary btn-lg mt-4">Learn More</a> -->
-  </div>
-    <!--
     <div data-aos="fade-up">
       <h1>Stellar Industries</h1>
       <p> <i> </i> </p>
-      <!-- <a href="#about" class="btn btn-primary btn-lg mt-4">Learn More</a> </div> -->
+      <!-- <a href="#about" class="btn btn-primary btn-lg mt-4">Learn More</a> -->
+    </div>
   </div>
 
   <!-- Metrics / Features Section -->
